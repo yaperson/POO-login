@@ -1,6 +1,7 @@
 <?php
 class User {
 
+    private $_id ;
     private $_email ;
     private $_password ;
 
@@ -23,6 +24,26 @@ class User {
         return $this->get_email();
     }
 
+
+        /**
+     * Get the value of _id
+     */ 
+    public function get_id()
+    {
+        return $this->_id;
+    }
+
+    /**
+     * Set the value of _id
+     *
+     * @return  self
+     */ 
+    public function set_id($_id)
+    {
+        $this->_id = $_id;
+
+        return $this;
+    }
 
     /**
      * Get the value of _email
@@ -63,6 +84,7 @@ class User {
 
         return $this;
     }
+
 }
 
 ?>

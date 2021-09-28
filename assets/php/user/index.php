@@ -11,9 +11,7 @@ try {
     $UserManager = new UserManager($db);
     $users = $UserManager->getList();
 
-} catch (PDOException $e){
-    print($e->getMessage());
-}
+
 
 ?>
 
@@ -44,7 +42,10 @@ try {
                     <th>email</th>
                 </tr>
                 <tr>
-                    <th><?php    foreach ($users as $user){print($user->get_email());} ?></th>
+                <?php
+                foreach ($users as $user){
+                    print('<th>' . $user->get_id() .'</th> <th>' . $user->get_email() .'</th>');
+                } ?>
                 </tr>
             </table>
             <a href="add.php">Add users</a>
@@ -59,4 +60,12 @@ try {
         </nav>
     </footer>
 </body>
+
+<?php
+} 
+catch (PDOException $e){
+    print($e->getMessage());
+}
+
+?>
 </html>
