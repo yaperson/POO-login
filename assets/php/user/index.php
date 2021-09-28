@@ -44,7 +44,7 @@ try {
                 <tr>
                 <?php
                 foreach ($users as $user){
-                    print('<th>' . $user->get_id() .'</th> <th>' . $user->get_email() .'</th>');
+                    print('<th>' . $user->getId() .'</th> <th>' . $user->getEmail() .'</th>');
                 } ?>
                 </tr>
             </table>

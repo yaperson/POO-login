@@ -34,7 +34,7 @@ class UserManager
     
     public function getOne(int $id)
     {
-        $sth = $this->_db->prepare('SELECT email FROM users WHERE id = ?;');
+        $sth = $this->_db->prepare('SELECT id, email FROM users WHERE id = ?;');
         $sth->execute(array($id));
         $ligne = $sth->fetch();
         $user = new User($ligne);

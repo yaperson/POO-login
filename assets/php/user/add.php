@@ -1,3 +1,12 @@
+<?php
+include "../conf.php";
+include "../Classes/UserManager.php";
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +29,8 @@
     <main>
         <form method="POST" class="login_form">
             <h1 class="login_title"> Vous êtes nouveau ? </h1>
-            <input class="login_inputs" type="text" name="username" required="" placeholder="email"> <br>
-            <input class="login_inputs" type="email" name="password" required="" placeholder="new password"> <br>
+            <input class="login_inputs" type="email" name="username" required="" placeholder="email"> <br>
+            <input class="login_inputs" type="password" name="password" required="" placeholder="new password"> <br>
             <input class="login_inputs" id="btn5" type="submit">
         </form>
     </main>
@@ -36,6 +45,3 @@
 </body>
 </html>
 
-<?php
-
-?>

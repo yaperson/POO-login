@@ -21,14 +21,14 @@ class User {
     }
     public function __toString():string
     {
-        return $this->get_email();
+        return $this->getEmail();
     }
 
 
         /**
      * Get the value of _id
      */ 
-    public function get_id()
+    public function getId()
     {
         return $this->_id;
     }
@@ -38,7 +38,7 @@ class User {
      *
      * @return  self
      */ 
-    public function set_id($_id)
+    public function setId($_id)
     {
         $this->_id = $_id;
 
@@ -48,7 +48,7 @@ class User {
     /**
      * Get the value of _email
      */ 
-    public function get_email()
+    public function getEmail()
     {
         return $this->_email;
     }
@@ -58,7 +58,7 @@ class User {
      *
      * @return  self
      */ 
-    public function set_email($_email)
+    public function setEmail($_email)
     {
         $this->_email = $_email;
 
@@ -68,7 +68,7 @@ class User {
     /**
      * Get the value of _password
      */ 
-    public function get_password()
+    public function getPassword()
     {
         return $this->_password;
     }
@@ -78,7 +78,7 @@ class User {
      *
      * @return  self
      */ 
-    public function set_password($_password)
+    public function setPassword($_password)
     {
         $this->_password = password_hash($_password, PASSWORD_BCRYPT);
 
