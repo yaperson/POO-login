@@ -1,25 +1,45 @@
 <?php
 class User {
 
-    private $_username ;
+    private $_email ;
     private $_password ;
 
-    /**
-     * Get the value of _username
-     */ 
-    public function get_username()
+    public function __construct(array $ligne)
     {
-        return $this->_username;
+        $this->hydrate($ligne);
+    }
+
+    public function hydrate(array $ligne)
+    {
+        foreach($ligne as $key => $value){
+            $method = 'set'.ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value); // on appel une methode qui est dans la variable donc on ajoute un $
+            }
+        }
+    }
+    public function __toString():string
+    {
+        return $this->get_email();
+    }
+
+
+    /**
+     * Get the value of _email
+     */ 
+    public function get_email()
+    {
+        return $this->_email;
     }
 
     /**
-     * Set the value of _username
+     * Set the value of _email
      *
      * @return  self
      */ 
-    public function set_username($_username)
+    public function set_email($_email)
     {
-        $this->_username = $_username;
+        $this->_email = $_email;
 
         return $this;
     }
@@ -39,7 +59,7 @@ class User {
      */ 
     public function set_password($_password)
     {
-        $this->_password = $_password;
+        $this->_password = password_hash($_password, PASSWORD_BCRYPT);
 
         return $this;
     }

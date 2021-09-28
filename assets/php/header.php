@@ -5,4 +5,5 @@ function chargerCalss($class){
 }
 spl_autoload("chargerClass");
 
+include "conf.php";
 ?>

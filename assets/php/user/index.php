@@ -1,3 +1,22 @@
+<?php
+// include "../header.php";
+include "../conf.php";
+include "../Classes/UserManager.php";
+
+
+try {
+    $db = new PDO($dsn, $usr, $pwd);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $UserManager = new UserManager($db);
+    $users = $UserManager->getList();
+
+} catch (PDOException $e){
+    print($e->getMessage());
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +39,15 @@
     <main>
             <h1> Liste des utilisateurs </h1>
             <table>
-                <tr>Id</tr>
-                <tr>email</tr>
-                <th>sss</th>
-                <td>eee</td>
+                <tr>
+                    <th>id</th>
+                    <th>email</th>
+                </tr>
+                <tr>
+                    <th><?php    foreach ($users as $user){print($user->get_email());} ?></th>
+                </tr>
             </table>
+            <a href="add.php">Add users</a>
         </form>
     </main>
     <footer>
@@ -37,7 +60,3 @@
     </footer>
 </body>
 </html>
-
-<?php
-
-?>
