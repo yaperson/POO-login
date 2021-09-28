@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/style/style.css">
-    <link rel="stylesheet" href="/assets/style/login.css">
+    <link rel="stylesheet" href="/assets/style/table.css">
     <title>Document</title>
 </head>
 <body>
@@ -18,11 +18,13 @@
         </nav>
     </header>
     <main>
-        <form method="POST" class="login_form">
-            <h1 class="login_title"> Connectez vous </h1>
-            <input class="login_inputs" type="text" name="username" required="" placeholder="email"> <br>
-            <input class="login_inputs" type="email" name="password" required="" placeholder="password"> <br>
-            <input class="login_inputs" id="btn5" type="submit">
+            <h1> Liste des utilisateurs </h1>
+            <table>
+                <tr>Id</tr>
+                <tr>email</tr>
+                <th>sss</th>
+                <td>eee</td>
+            </table>
         </form>
     </main>
     <footer>
@@ -34,7 +36,6 @@
         </nav>
     </footer>
 </body>
-<script src="assets/script/btn5.js" type="text/javascript"></script>
 </html>
 
 <?php

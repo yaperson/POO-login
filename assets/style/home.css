@@ -16,28 +16,9 @@ h3{
     transform: translateX(26px);
 }
 
-@keyframes color {
-    0%{color: rgb(40, 106, 206);}
-    50%{color: rgb(202, 38, 79);}
-    100%{color: rgb(40, 106, 206);}
-}
-
 .letter {
     transform: translateZ(200px);
 }
-
-
-@keyframes anim {
-    25%{
-        transform: translateZ(0px);
-        opacity: 1;
-    }
-    32%{
-        transform: translateZ(-280px) translateZ(200px);
-        opacity: 0;
-    }
-}
-
 
 /***************/
 .main__btn{
@@ -83,4 +64,37 @@ h3{
 #btn5:hover::before{
     --size: 500px;
 
+}
+
+@media screen and (max-width: 750px) {
+    main{
+        max-width: 100%;
+    }
+    .main__title{
+        max-width: 320px;
+        font-size: 50px;
+    }
+    h3{
+        font-size: 50px;
+    }
+    #target{
+        font-size: 50px;
+    }
+}
+
+@keyframes anim {
+    25%{
+        transform: translateZ(0px);
+        opacity: 1;
+    }
+    32%{
+        transform: translateZ(-280px) translateZ(200px);
+        opacity: 0;
+    }
+}
+
+@keyframes color {
+    0%{color: rgb(40, 106, 206);}
+    50%{color: rgb(202, 38, 79);}
+    100%{color: rgb(40, 106, 206);}
 }
