@@ -1,10 +1,12 @@
 <?php
 include("User.php");
+include "../conf.php";
+
 class UserManager 
 {
     private $_db;
 
-    public function __construct($db)
+    public function __construct(PDO $db)
     {
         $this->setDb($db);
     }
@@ -15,9 +17,18 @@ class UserManager
         return $this;
     }
 
-    public function add(User $user):User
+    public function addUser(PDO $db):User
     {
-        // TODO
+        // Netoyge des donnés envoyées
+        strip_tags($_POST['email']);
+        strip_tags($_POST['password']);
+
+        $stmt = $db->prepare("INSERT INTO users (name, password) VALUE (?, ?);");
+        $stmt->bindParam(1, $user, PDO::PARAM_STR, 4000); 
+        
+        // Appel de la procédure stockée
+        $stmt->execute();
+
         return $user;
 
     }
