@@ -28,7 +28,7 @@ try {
 <body>
     <header>
         <nav class="topnav" id="myTopnav">
-            <a class="topnav__link" href="index.html">Home</a>
+            <a class="topnav__link" href="../../../index.html">Home</a>
             <a class="topnav__link" href="#news">News</a>
             <a class="topnav__link" href="#contact">Contact</a>
             <a class="topnav__link" id="right" href="#">| Login</a>

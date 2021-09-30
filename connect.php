@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+include "../conf.php";
+include "../Classes/UserManager.php";
+
+if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
+    $db = new PDO($dsn, $usr, $pwd);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $UserManager = new UserManager($db);
+    $users = $UserManager->connectUser($email ,$password);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +39,8 @@
     <main>
         <form method="POST" class="login_form">
             <h1 class="login_title"> Connectez vous </h1>
-            <input class="login_inputs" type="text" name="username" required="" placeholder="email"> <br>
-            <input class="login_inputs" type="email" name="password" required="" placeholder="password"> <br>
+            <input class="login_inputs" type="email" name="username" required="" placeholder="email"> <br>
+            <input class="login_inputs" type="password" name="password" required="" placeholder="password"> <br>
             <input class="login_inputs" id="btn5" type="submit">
         </form>
     </main>

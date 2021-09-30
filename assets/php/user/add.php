@@ -7,6 +7,12 @@ include "../Classes/UserManager.php";
 if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
     $db = new PDO($dsn, $usr, $pwd);
     $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $UserManager = new UserManager($db);
+    $users = $UserManager->addUser($email ,$password);
 }
 
 ?>
@@ -25,10 +31,10 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password'
 <body>
     <header>
         <nav class="topnav" id="myTopnav">
-            <a class="topnav__link" href="./index.html">Home</a>
+            <a class="topnav__link" href="../../../index.html">Home</a>
             <a class="topnav__link" href="#news">News</a>
             <a class="topnav__link" href="#contact">Contact</a>
-            <a class="topnav__link" id="right" href="/index.php">| Login</a>
+            <a class="topnav__link" id="right" href="index.php">| Login</a>
         </nav>
     </header>
     <main>

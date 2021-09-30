@@ -17,19 +17,19 @@ class UserManager
         return $this;
     }
 
-    public function addUser(PDO $db):User
+    public function addUser($email, $password)
     {
         // Netoyge des donnés envoyées
-        strip_tags($_POST['email']);
-        strip_tags($_POST['password']);
+        $email = strip_tags($_POST['email']);
+        $password = strip_tags($_POST['password']);
 
-        $stmt = $db->prepare("INSERT INTO users (name, password) VALUE (?, ?);");
-        $stmt->bindParam(1, $user, PDO::PARAM_STR, 4000); 
+        $stmt = $this->_db->prepare("INSERT INTO users (email, password) VALUE (?, ?);");
+        $stmt->bindParam(1, $email); 
+        $stmt->bindParam(2, $password); 
         
         // Appel de la procédure stockée
         $stmt->execute();
 
-        return $user;
 
     }
 
@@ -43,13 +43,15 @@ class UserManager
         // TODO
     }
     
-    public function getOne(int $id)
+    public function connectUser($email, $password)
     {
-        $sth = $this->_db->prepare('SELECT id, email FROM users WHERE id = ?;');
-        $sth->execute(array($id));
-        $ligne = $sth->fetch();
-        $user = new User($ligne);
-        return $user;
+        $email = strip_tags($_POST['email']);
+        $password = strip_tags($_POST['password']);
+
+        $stmt = $this->_db->prepare("SELECT email, password WERE email =  ? and password = ?;");
+        $stmt->bindParam(1, $email); 
+        $stmt->bindParam(2, $password); 
+        
     }
     
     public function getList():array
